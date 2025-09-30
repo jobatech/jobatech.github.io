@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>jobatech - Jörg Bäuerle Tech Freelancing</title>
   <link rel="icon" href="logo.png" type="image/png" />
+  <link rel="stylesheet" href="main.css" />
   <meta name="description" content="Ich biete individuelle Software-Lösungen in Baiersbronn und Umgebung. Datenanalyse, Algorithmen, Machine Learning, Cloud Services, und mehr.">
 
   <!-- Open Graph (für Social Media) -->
@@ -33,115 +34,6 @@
     ]
   }
   </script>
-
-  <style>
-    /* --- Base / layout --- */
-    :root{
-      --bg-1: #2a0a45;   /* deep purple */
-      --bg-2: #0a0f4d;   /* dark navy */
-      --muted: #E0E0E0;  /* body text */
-      --accent-start: #ff00cc; /* magenta */
-      --accent-mid:   #7a00ff; /* purple */
-      --accent-end:   #00ccff; /* cyan */
-    }
-
-    html,body{
-      height: 100%;
-      margin: 0;
-    }
-
-    body{
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      color: var(--muted);
-      /* background: static gradient */
-      background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-
-      /* center content */
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding: 2rem;
-    }
-
-    /* container to limit width */
-    .container{
-      width: 100%;
-      max-width: 900px;
-      text-align: center;
-    }
-
-    /* Logo */
-    .logo {
-      display:block;
-      margin: 0 auto 1.5rem;
-      max-width: 260px;   /* change as needed */
-      width: 35%;
-      height: auto;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
-    }
-
-    /* Gradient text helper for headings */
-    .gradient-text {
-      background: linear-gradient(90deg, var(--accent-start), var(--accent-mid), var(--accent-end));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent; /* fallback for non-clip browsers */
-    }
-
-    /* Headings */
-    h1{
-      font-size: clamp(1.75rem, 4.5vw, 2.6rem);
-      line-height: 1.05;
-      margin: 0.25rem 0 0.5rem;
-      letter-spacing: -0.01em;
-      font-weight: 700;
-    }
-
-    h2{
-      font-size: clamp(1rem, 2.3vw, 1.4rem);
-      margin: 0.25rem 0 1rem;
-      font-weight: 500;
-      color: rgba(224,224,224,0.9); /* slightly lighter fallback */
-    }
-
-    h3{
-      font-size: 1rem;
-      margin: 0.5rem 0 0;
-      font-weight: 400;
-      font-style: italic;
-      color: rgba(224,224,224,0.85);
-    }
-
-    /* Make headings use the gradient appearance but keep accessibility fallback */
-    .heading-gradient {
-      display:inline-block; /* help gradient size */
-    }
-
-    /* small responsive tweaks */
-
-    @media (max-width:420px){
-      .logo{ width: 46%; max-width: 160px; margin-bottom: 1rem; }
-      body{ padding: 1rem; }
-    }
-
-    /* Optional: subtle animated gradient background (comment out to keep static) */
-    /*
-    @keyframes bgShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    body {
-      background: linear-gradient(120deg, #2a0a45, #0a0f4d, #1b0740);
-      background-size: 300% 300%;
-      animation: bgShift 18s ease infinite;
-    }
-    */
-
-  </style>
 </head>
 <body>
   <main class="container" role="main" aria-labelledby="main-title">
