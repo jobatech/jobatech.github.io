@@ -13,11 +13,17 @@ html,body{
   margin: 0;
 }
 
+html {
+  /* Background on html ensures it covers the full page */
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  background-attachment: fixed;
+  min-height: 100%;
+}
+
 body{
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   color: var(--muted);
-  /* background: static gradient */
-  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  /* Remove background from body since it's now on html */
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
 
@@ -27,6 +33,8 @@ body{
   align-items:center;
   min-height: 100vh;
   padding: 2rem;
+  background: none;
+}
 }
 
 /* Main content should grow to push footer down */
