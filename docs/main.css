@@ -1,0 +1,323 @@
+/* --- Base / layout --- */
+:root{
+  --bg-1: #2a0a45;   /* deep purple */
+  --bg-2: #0a0f4d;   /* dark navy */
+  --muted: #E0E0E0;  /* body text */
+  --accent-start: #ff00cc; /* magenta */
+  --accent-mid:   #7a00ff; /* purple */
+  --accent-end:   #00ccff; /* cyan */
+}
+
+html,body{
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  /* Synthwave panorama background - dimmed towards dark */
+  background: 
+    /* Sun - much darker */
+    radial-gradient(circle at 50% 60%, 
+      #4a2a1a 0%, 
+      #4a2a1a 8%, 
+      transparent 8%),
+    /* Sun glow - darker */
+    radial-gradient(circle at 50% 60%, 
+      rgba(74, 42, 26, 0.6) 0%, 
+      rgba(74, 42, 26, 0.3) 15%, 
+      transparent 25%),
+    /* Sky gradient - much darker versions */
+    linear-gradient(to bottom,
+      #330a26 0%,
+      #1f0033 30%,
+      #4a2a1a 50%,
+      #332408 70%,
+      #0a0f4d 100%);
+  background-attachment: fixed;
+  min-height: 100%;
+  position: relative;
+}
+
+/* Grid overlay - dimmed towards dark */
+html::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    /* Vertical grid lines - darker cyan */
+    linear-gradient(90deg, 
+      transparent 0%, 
+      transparent calc(50% - 1px), 
+      rgba(0, 102, 128, 0.3) 50%, 
+      transparent calc(50% + 1px), 
+      transparent 100%),
+    /* Horizontal grid lines - darker cyan */
+    linear-gradient(0deg, 
+      transparent 0%, 
+      transparent calc(10% - 1px), 
+      rgba(0, 102, 128, 0.2) 10%, 
+      transparent calc(10% + 1px), 
+      transparent calc(20% - 1px), 
+      rgba(0, 102, 128, 0.2) 20%, 
+      transparent calc(20% + 1px), 
+      transparent calc(30% - 1px), 
+      rgba(0, 102, 128, 0.2) 30%, 
+      transparent calc(30% + 1px), 
+      transparent calc(40% - 1px), 
+      rgba(0, 102, 128, 0.2) 40%, 
+      transparent calc(40% + 1px), 
+      transparent calc(50% - 1px), 
+      rgba(0, 102, 128, 0.2) 50%, 
+      transparent calc(50% + 1px), 
+      transparent calc(60% - 1px), 
+      rgba(0, 102, 128, 0.3) 60%, 
+      transparent calc(60% + 1px), 
+      transparent calc(70% - 1px), 
+      rgba(0, 102, 128, 0.4) 70%, 
+      transparent calc(70% + 1px), 
+      transparent calc(80% - 1px), 
+      rgba(0, 102, 128, 0.5) 80%, 
+      transparent calc(80% + 1px), 
+      transparent calc(90% - 1px), 
+      rgba(0, 102, 128, 0.6) 90%, 
+      transparent calc(90% + 1px), 
+      transparent 100%);
+  background-size: 100px 100px, 100% 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Palm trees and mountains silhouettes */
+html::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: 
+    /* Mountain silhouettes */
+    polygon(0% 100%, 15% 70%, 25% 80%, 40% 60%, 55% 75%, 70% 50%, 85% 65%, 100% 55%, 100% 100%),
+    /* Dark ground */
+    linear-gradient(to top, #0a0f4d 0%, transparent 100%);
+  clip-path: polygon(0% 100%, 15% 70%, 25% 80%, 40% 60%, 55% 75%, 70% 50%, 85% 65%, 100% 55%, 100% 100%);
+  background-color: rgba(10, 15, 77, 0.8);
+  pointer-events: none;
+  z-index: -1;
+}
+
+body{
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: var(--muted);
+  /* Remove background from body since it's now on html */
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+
+  /* center content and sticky footer */
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+  min-height: 100vh;
+  padding: 2rem;
+  background: none;
+}
+}
+
+/* Main content should grow to push footer down */
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+/* container to limit width */
+.container{
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+/* Logo */
+.logo {
+  display:block;
+  margin: 0 auto 1.5rem;
+  max-width: 260px;   /* change as needed */
+  width: 35%;
+  height: auto;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.6));
+}
+
+/* Gradient text helper for headings */
+.gradient-text {
+  background: linear-gradient(90deg, var(--accent-start), var(--accent-mid), var(--accent-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* fallback for non-clip browsers */
+}
+
+/* Headings */
+h1{
+  font-size: clamp(1.75rem, 4.5vw, 2.6rem);
+  line-height: 1.05;
+  margin: 0.25rem 0 0.5rem;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+
+/* Header h1 should be pink with glow like section h2 */
+header h1 {
+  color: #ff00cc; /* neon pink */
+  text-shadow: 0 0 3px rgba(255, 0, 204, 0.6);
+}
+
+h2{
+  font-size: clamp(1rem, 2.3vw, 1.4rem);
+  margin: 0.25rem 0 1rem;
+  font-weight: 500;
+  color: #ff00cc; /* neon pink */
+  text-shadow: 0 0 3px rgba(255, 0, 204, 0.6);
+}
+
+/* Header h2 should be white like h1 */
+header h2 {
+  color: var(--muted);
+  text-shadow: none;
+}
+
+/* Links styling for retrowave theme */
+a {
+  color: #00ccff; /* cyan - matches --accent-end */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #00ffff; /* brighter cyan on hover */
+  text-shadow: 0 0 5px rgba(0, 204, 255, 0.6);
+}
+
+/* Section content styling */
+section {
+  text-align: left;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Section headings remain centered */
+section h2 {
+  text-align: center;
+}
+
+/* Cool retrowave list styling */
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+li::before {
+  content: "▶";
+  position: absolute;
+  left: 0;
+  color: #00ccff; /* cyan arrow */
+  font-size: 0.8rem;
+  text-shadow: 0 0 3px rgba(0, 204, 255, 0.6);
+}
+
+h3{
+  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(224,224,224,0.85);
+}
+
+/* Make headings use the gradient appearance but keep accessibility fallback */
+.heading-gradient {
+  display:inline-block; /* help gradient size */
+}
+
+/* small responsive tweaks */
+
+@media (max-width: 768px) {
+  body {
+    padding: 1.5rem 1rem;
+  }
+  
+  .container {
+    max-width: 100%;
+  }
+  
+  section {
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    margin-bottom: 1rem;
+  }
+  
+  h2 {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+  }
+  
+  main {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .logo { 
+    width: 60%; 
+    max-width: 180px; 
+    margin-bottom: 1.5rem; 
+  }
+  
+  body { 
+    padding: 1rem 0.5rem; 
+  }
+  
+  section {
+    padding: 0 0.25rem;
+  }
+  
+  li {
+    padding-left: 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  main {
+    margin-top: 1.5rem;
+  }
+  
+  p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Optional: subtle animated gradient background (comment out to keep static) */
+/*
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body {
+  background: linear-gradient(120deg, #2a0a45, #0a0f4d, #1b0740);
+  background-size: 300% 300%;
+  animation: bgShift 18s ease infinite;
+}
+*/
