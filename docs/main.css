@@ -131,7 +131,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: 3rem;
+  margin-top: 2rem;
 }
 
 /* container to limit width */
@@ -206,7 +206,7 @@ section {
   text-align: left;
   max-width: 800px;
   width: 100%;
-  margin: 0 auto 2rem auto;
+  margin: 0 auto 1.5rem auto;
 }
 
 /* Section headings remain centered */
