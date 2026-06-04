@@ -35,6 +35,10 @@ section h3 {
   font-style: italic;
 }
 
+.source-citation + .source-citation {
+  margin-top: 0.25rem;
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .impressum-contact {
