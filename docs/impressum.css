@@ -30,6 +30,15 @@ section h3 {
   background: linear-gradient(135deg, var(--accent-mid), var(--accent-end));
 }
 
+.source-citation {
+  margin-top: 3rem;
+  font-style: italic;
+}
+
+.source-citation + .source-citation {
+  margin-top: 0.25rem;
+}
+
 /* Responsive adjustments for mobile */
 @media (max-width: 768px) {
   .impressum-contact {
